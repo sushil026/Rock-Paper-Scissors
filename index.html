@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div id="root">
+        <div id="game">
+            <div id="scoreBoard">
+                <h1>ROCK <br> PAPER <br> SCISSORS </h1>
+                <div id="pcScore">
+                    <h3>COMPUTER <br> SCORE</h3>
+                    <h1 style="font-size: 3em; color: black;"></h1>
+                </div>
+                <div id="score">
+                    <h3>YOUR <br> SCORE</h3>
+                    <h1 style="font-size: 3em; color: black; margin: 0px;"></h1>
+                </div>
+            </div>
+            <div id="play">
+                <div class="select" id="rock" style="border: 10px solid #0074B6; right: 100px; top: 40px;" onclick="yourMove(id)" >
+                    <img src="images/rock.svg" alt="rock">
+                </div>
+                <div class="select" id="paper" style="border: 10px solid #FFA943; left: 100px; top: -80px;" onclick="yourMove(id)">
+                    <img src="images/paper.svg" alt="paper">
+                </div>
+                <div class="select" id="scissors" style="border: 10px solid #BD00FF;top: -50px;" onclick="yourMove(id)">
+                    <img src="images/scissors.svg"  alt="scissors">
+                </div>
+            </div>
+            <div id="result" style="display: none;">
+                <div class="results" id="yourMove">
+                    <h3 id="move1"></h3>
+                    <div>
+                        <div class="resultIcon" id="resRock" style="border: 10px solid #0074B6;">
+                            <img src="images/rock.svg" alt="rock">
+                        </div> 
+                        <div class="resultIcon" id="resPaper" style="border: 10px solid #FFA943;">
+                            <img src="images/paper.svg" alt="paper">
+                        </div> 
+                        <div class="resultIcon" id="resScissors" style="border: 10px solid #BD00FF;">
+                            <img src="images/scissors.svg"  alt="scissors">
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <h2 id="resultText" ></h2>
+                    <div id="replayButton">
+                        <h3 id="replay"></h3>
+                    </div>
+                </div>
+                <div class="results" id="pcMove">
+                    <h3 id="move2"></h3>
+                    <div>
+                        <div class="resultIcon" id="resRock2" style="border: 10px solid #0074B6;">
+                            <img src="images/rock.svg" alt="rock">
+                        </div>
+                        <div class="resultIcon" id="resPaper2" style="border: 10px solid #FFA943;">
+                            <img src="images/paper.svg" alt="paper">
+                        </div>
+                        <div class="resultIcon" id="resScissors2" style="border: 10px solid #BD00FF;">
+                            <img src="images/scissors.svg"  alt="scissors">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rules">
+            <div id="cross">
+                <p>X</p>
+            </div>
+            <div id="rulesList">
+                <h3 style="text-align: center; font-size: 1.7rem; font-family: 'roboto',sans-serif;">Game Rules</h3>
+                <ul>
+                    <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                <li>Agree ahead of time whether you will count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+                </ul>
+            </div>
+        </div>
+        <div id="ruleButton">
+            <p>RULES</p>
+        </div>
+        <div id="nextButton" onclick="openFile('celebration.html')">    
+            <p>NEXT</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>
