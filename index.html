@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -16,11 +16,11 @@
                 <h1>ROCK <br> PAPER <br> SCISSORS </h1>
                 <div id="pcScore">
                     <h3>COMPUTER <br> SCORE</h3>
-                    <h1 style="font-size: 3em; color: black;"></h1>
+                    <h1 style="font-size: 2.7em; color: black; margin-top: 10px;">0</h1>
                 </div>
                 <div id="score">
                     <h3>YOUR <br> SCORE</h3>
-                    <h1 style="font-size: 3em; color: black; margin: 0px;"></h1>
+                    <h1 style="font-size: 2.7em; color: black; margin-top: 10px;">0</h1>
                 </div>
             </div>
             <div id="play">
@@ -50,7 +50,8 @@
                     </div>
                 </div>
                 <div style="text-align: center;">
-                    <h2 id="resultText" ></h2>
+                    <h2 id="resultText1" style="letter-spacing: 0.2em; font-size: 2em;"></h2>
+                    <h2 id="resultText2" ></h2>
                     <div id="replayButton">
                         <h3 id="replay"></h3>
                     </div>
@@ -88,7 +89,7 @@
         <div id="ruleButton">
             <p>RULES</p>
         </div>
-        <div id="nextButton" onclick="openFile('celebration.html')">    
+        <div id="nextButton"onclick="openFile('celebration.html')">    
             <p>NEXT</p>
         </div>
     </div>
