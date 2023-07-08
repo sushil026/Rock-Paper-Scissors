@@ -58,13 +58,13 @@ body{
 }
 @keyframes glow {
     0% {
-      box-shadow: 0 0 25px #3B6720;
+      box-shadow: 0 0 0 10px #3B6720;
     }
     50% {
-      box-shadow: 0 0 50px #1DA82BC9;
+      box-shadow: 0 0 0 20px #1DA82BC9;
     }
     100% {
-      box-shadow: 0 0 25px #2E9A2563;
+      box-shadow: 0 0 0 15px #2E9A2563;
     }
   }
 #cross{
