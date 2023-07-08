@@ -42,48 +42,76 @@ function score(user, pc){
         showResult( user , pc, 'draw');
     }
 }
+const resText = document.getElementById("resultText1");
+const resText2 = document.getElementById("resultText2");
+const replayButton = document.getElementById("replayButton");
+const replay = document.getElementById("replay");
 function showResult(user, pc , result) {
+    var winner; 
     document.getElementById("result").style.display = 'flex';
     if(  result === 'win'){
         userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
         localStorage.setItem("userScore", userScore.innerHTML);
-        document.getElementById("resultText").innerHTML = 'YOU WIN <br> AGAINST PC';
-        document.getElementById("replayButton").style.display = "block";
-        document.getElementById("replay").innerHTML = 'PLAY AGAIN';
+        resText.innerHTML = 'YOU WON';
+        resText2.innerHTML = 'AGAINST PC';
+        replayButton.style.display = "block";
+        replay.innerHTML = 'PLAY AGAIN';
         document.getElementById("move1").innerHTML = 'YOU PICKED';
         document.getElementById("move2").innerHTML = 'PC PICKED';
         document.getElementById("nextButton").style.display = "block";
         document.getElementById("ruleButton").style.left = '55em';
         pcIcons.get(pc).style.display = "flex";
         userIcons.get(user).style.display = "flex";
+        winner = userIcons.get(user);
+        makeGlow(winner);
     }
     else if( result === 'lose'){
         pcScore.innerHTML = parseInt(pcScore.innerHTML) + 1;
         localStorage.setItem('pcScore', pcScore.innerHTML);
-        document.getElementById("resultText").innerHTML = 'YOU LOSE <br> AGAINST PC';
-        document.getElementById("replayButton").style.display = "block";
-        document.getElementById("replay").innerHTML = 'PLAY AGAIN';
+        resText.innerHTML = 'YOU LOSE';
+        resText2.innerHTML = 'AGAINST PC';
+        replayButton.style.display = "block";
+        replay.innerHTML = 'PLAY AGAIN';
+        document.getElementById("move1").innerHTML = 'YOU PICKED';
+        document.getElementById("move2").innerHTML = 'PC PICKED';
+        pcIcons.get(pc).style.display = "flex";
+        userIcons.get(user).style.display = "flex";
+        winner = pcIcons.get(pc);
+        makeGlow(winner);
+    }
+    else{
+        resText.innerHTML = 'TIE UP';
+        resText2.innerHTML = '';
+        replayButton.style.display = "block";
+        replay.innerHTML = 'REPLAY';
         document.getElementById("move1").innerHTML = 'YOU PICKED';
         document.getElementById("move2").innerHTML = 'PC PICKED';
         pcIcons.get(pc).style.display = "flex";
         userIcons.get(user).style.display = "flex";
     }
-    else{
-        document.getElementById("resultText").innerHTML = 'TIE UP';
-        document.getElementById("replayButton").style.display = "block";
-        document.getElementById("replay").innerHTML = 'REPLAY';
-        document.getElementById("move1").innerHTML = 'YOU PICKED';
-        document.getElementById("move2").innerHTML = 'PC PICKED';
-        pcIcons.get(pc).style.display = "flex";
-        userIcons.get(user).style.display = "flex";
+    function makeGlow( winner ){
+        winner.style.boxShadow = '0 0 0px 25px #3B6720';
+            setTimeout(function () {
+              winner.style.boxShadow = '0 0 0px 60px #1DA82BC9';
+              setTimeout(function () {
+                winner.style.boxShadow = '0 0 0px 30px #2E9A2563';
+                    setTimeout(function(){
+                    },300);
+              }, 400);
+            }, 300);
     }
     document.getElementById("replayButton").addEventListener('click',()=>{
         document.getElementById("result").style.display = 'none';
         document.getElementById("play").style.display = 'flex';
         pcIcons.get(pc).style.display = "none";
         userIcons.get(user).style.display = "none";
+        document.getElementById("nextButton").style.display = "none";
+        document.getElementById("ruleButton").style.left = '63em';
+        winner.style.boxShadow = '0 0 0px 0px #1DA82BC9';
+        clearTimeout(winner);
     })
 }
+
 function openFile(file) {
     window.location.href = file;
 }
