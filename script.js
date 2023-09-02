@@ -3,14 +3,30 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const userScore = document.querySelector('#score>h1');
 const pcScore = document.querySelector('#pcScore>h1');
+let scoreOfuser;
+let scoreOfPc;
 const move = document.getElementsByClassName('select');
 const moves = ['rock', 'paper', 'scissors'];
 const pcIcons = new Map([['rock', document.getElementById("resRock2")], ['paper', document.getElementById("resPaper2")], ['scissors', document.getElementById("resScissors2")]]);
 const userIcons = new Map([['rock', document.getElementById("resRock")], ['paper', document.getElementById("resPaper")], ['scissors', document.getElementById("resScissors")]]);
+if(localStorage.getItem('userScore')){
+    scoreOfuser = localStorage.getItem('userScore');
+ }
+ else{
+    localStorage.setItem('userScore', 0);
+    scoreOfuser = localStorage.getItem('userScore');
+ }
+if(localStorage.getItem('PcScore')){
+    scoreOfPc = localStorage.getItem('PcScore');
+ }
+ else{
+    localStorage.setItem('PcScore', 0);
+    scoreOfPc = localStorage.getItem('PcScore');
+ }
 
 window.onload = function() {
-    userScore.innerHTML = localStorage.getItem('userScore');
-    pcScore.innerHTML = localStorage.getItem('pcScore');
+    pcScore.innerHTML = scoreOfPc;
+    userScore.innerHTML = scoreOfuser;
 }
 
 function yourMove(id) {
@@ -49,9 +65,9 @@ const replay = document.getElementById("replay");
 function showResult(user, pc , result) {
     var winner; 
     document.getElementById("result").style.display = 'flex';
-    if(  result === 'win'){
+    if( result === 'win'){
         userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
-        localStorage.setItem("userScore", userScore.innerHTML);
+        localStorage.setItem("userScore", (userScore.innerHTML));
         resText.innerHTML = 'YOU WON';
         resText2.innerHTML = 'AGAINST PC';
         replayButton.style.display = "block";
@@ -67,7 +83,7 @@ function showResult(user, pc , result) {
     }
     else if( result === 'lose'){
         pcScore.innerHTML = parseInt(pcScore.innerHTML) + 1;
-        localStorage.setItem('pcScore', pcScore.innerHTML);
+        localStorage.setItem('PcScore', (pcScore.innerHTML));
         resText.innerHTML = 'YOU LOSE';
         resText2.innerHTML = 'AGAINST PC';
         replayButton.style.display = "block";
