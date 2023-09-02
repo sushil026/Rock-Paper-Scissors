@@ -1,1 +1,1 @@
-🔗: https://rck-ppr-scssrs.netlify.app/
+🔗: https://stn-ppr-scssrs.netlify.app/
